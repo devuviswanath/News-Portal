@@ -1,0 +1,33 @@
+<mat-toolbar>
+  <span>NEWS PORTAL</span>
+</mat-toolbar>
+<mat-card class="login-card">
+   <mat-card-content>
+      <form class="login-form" >
+        <table>
+          <tr>
+            <td>
+         <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input  matInput  placeholder="Email" [(ngModel)] ="email" name="email"   required>
+            
+         </mat-form-field>
+        </td>
+         </tr>
+         <tr>
+           <td>
+         <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input  matInput  placeholder="Password" [(ngModel)]="password" name="password"  required>
+         </mat-form-field>
+        </td>
+        </tr>
+        </table>
+      </form>
+      
+   </mat-card-content>
+   <mat-card-actions>
+      <button mat-raised-button (click)="login()" color="primary">LOGIN</button>
+      <a mat-raised-button routerLink="/registration">Create Account</a> 
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,41 @@
+ 
+ <mat-toolbar class="home-tool">
+    <span class="menu-spacer"></span>
+    <div>
+      <a  mat-raised-button  [routerLink]="'/user-profile'"> Profile </a>
+      
+         </div> 
+            <h1 style="margin-left: 500px;">NEWS</h1>
+
+         <mat-form-field style="margin-left: 500px;">  
+          <mat-label style="margin-left: 50px;">Article Filter</mat-label>  
+          <mat-select [(ngModel)]="selectedSection">  
+            <mat-option *ngFor="let sort of section"  [value]="sort.section">  {{sort.section}}
+             
+            </mat-option>  
+          </mat-select>  
+         
+        </mat-form-field>         
+  </mat-toolbar> 
+ 
+   <mat-grid-list cols="2" rowHeight="100px" >
+   
+    <mat-grid-tile 
+    *ngFor="let e of lis"
+    >
+    
+      <ul>
+       
+        <li>
+
+   <a href="{{e.url}}" target="_blank" ><b>{{ e.title }}</b></a> </li><li>{{ e.abstract }}</li>
+<a *ngFor="let em of e.multimedia" ><img style="width: 5%;" src="{{em.url}}" ></a></ul>
+
+  
+  
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  
+  
+   

@@ -1,0 +1,53 @@
+
+<mat-toolbar class="home-tool">
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-raised-button   [routerLink]="'/home'"> Home </a>
+      
+         </div>
+         <span > </span>
+  </mat-toolbar>
+  <mat-card class="profile-card">
+    <mat-card-content>
+        <form >
+            <table>
+                <tr><td>
+           <mat-form-field class="full-width">
+              
+                  <mat-label>Name</mat-label>
+                  
+                  <input  matInput   [(ngModel)]="username" [formControl]="nameFormControl" [errorStateMatcher]="matcher"  name="data.username"  required>
+                  <mat-error *ngIf="nameFormControl.hasError('required')">
+                     Name is <strong>required</strong>
+                   </mat-error>
+               </mat-form-field>
+            </td></tr>
+            
+            <tr><td> 
+               <mat-form-field  class="full-width">
+                  <mat-label>Email</mat-label>
+                  <input  matInput   [(ngModel)]="email" name="data.email" [readonly]="true">
+                  
+               </mat-form-field>
+            </td></tr>
+            <tr><td>
+               <mat-form-field class="full-width">
+                  <mat-label>Password </mat-label>
+                  <input  matInput   [(ngModel)]="password" [formControl]="passwordFormControl" [errorStateMatcher]="matcher" name="data.password" required maxlength="20">
+               </mat-form-field>
+               <mat-error *ngIf="passwordFormControl.hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="passwordFormControl.hasError('maxlength')">
+                  maximum 20 character.
+                </mat-error>
+            </td></tr>
+               
+            </table>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="saved()" color="primary">SAVE</button>
+        <button mat-raised-button (click)="delete()" color="primary">Delete Account</button>
+     </mat-card-actions>
+    </mat-card>
